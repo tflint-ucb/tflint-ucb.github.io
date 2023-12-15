@@ -1,113 +1,98 @@
-# just-the-docs-template
+## Phantom for Jekyll
 
-This is a *bare-minimum* template to create a [Jekyll] site that:
+A minimalist, responsive portfolio theme for [Jekyll](http://jekyllrb.com/) with Bootstrap.
 
-- uses the [Just the Docs] theme;
-- can be built and published on [GitHub Pages];
-- can be built and previewed locally, and published on other platforms.
+![preview](preview.jpg)
 
-More specifically, the created site:
+[See it in action](http://jamigibbs.github.io/phantom/).
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem;
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages.
+## Fancy using it for your own site?
 
-To get started with creating a site, just click "[use this template]"!
+Here are some steps to get you started:
 
-After completing the creation of your new site on GitHub, update it as needed:
+1. Clone this repo and cd into the directory:
 
-## Replace the content of the template pages
-
-Update the following files to your own content:
-
-- `index.md` (your new home page)
-- `README.md` (information for those who access your site repo on GitHub)
-
-## Changing the version of the theme and/or Jekyll
-
-Simply edit the relevant line(s) in the `Gemfile`.
-
-## Adding a plugin
-
-The Just the Docs theme automatically includes the [`jekyll-seo-tag`] plugin.
-
-To add an extra plugin, you need to add it in the `Gemfile` *and* in `_config.yml`. For example, to add [`jekyll-default-layout`]:
-
-- Add the following to your site's `Gemfile`:
-
-  ```ruby
-  gem "jekyll-default-layout"
+  ```bash
+  git clone https://github.com/jamigibbs/phantom.git your-dir-name && cd your-dir-name
   ```
 
-- And add the following to your site's `_config.yml`:
+2. Run:
 
-  ```yaml
-  plugins:
-    - jekyll-default-layout
+  ```bash
+  gem install bundler
+  bundle install
+  bundle exec jekyll serve
   ```
 
-Note: If you are using a Jekyll version less than 3.5.0, use the `gems` key instead of `plugins`.
+  You may need to append your commands with `sudo` if you're getting a permissions error.
 
-## Publishing your site on GitHub Pages
+  _Don't have Jekyll yet? [Get `er installed then!](http://jekyllrb.com/docs/installation/)_
 
-1.  If your created site is `YOUR-USERNAME/YOUR-SITE-NAME`, update `_config.yml` to:
+3. Visit in your browser at:
 
-    ```yaml
-    title: YOUR TITLE
-    description: YOUR DESCRIPTION
-    theme: just-the-docs
+  `http://127.0.0.1:4000`
 
-    url: https://YOUR-USERNAME.github.io/YOUR-SITE-NAME
+## Launching with Github Pages :rocket:
 
-    aux_links: # remove if you don't want this link to appear on your pages
-      Template Repository: https://github.com/YOUR-USERNAME/YOUR-SITE-NAME
-    ```
+Jekyll + Github pages is a marriage made in heaven. You can [use your own custom domain name](https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/) or use the default Github url (ie. http://username.github.io/repository) and not bother messing around with DNS settings.
 
-2.  Push your updated `_config.yml` to your site on GitHub.
+## Theme Features
 
-3.  In your newly created repo on GitHub:
-    - go to the `Settings` tab -> `Pages` -> `Build and deployment`, then select `Source`: `GitHub Actions`.
-    - if there were any failed Actions, go to the `Actions` tab and click on `Re-run jobs`.
+### Navigation
 
-## Building and previewing your site locally
+Navigation can be customized in `_config.yml` under the `nav_item` key. Default settings:
 
-Assuming [Jekyll] and [Bundler] are installed on your computer:
+```yaml
+nav_item:
+    - { url: '/', text: 'Home' }
+    - { url: '/about', text: 'About' }
+```
 
-1.  Change your working directory to the root directory of your site.
+Set the `nav_enable` variable to false in `_config.yml` to disable navigation.
 
-2.  Run `bundle install`.
+### Contact Form
 
-3.  Run `bundle exec jekyll serve` to build your site and preview it at `localhost:4000`.
+You can display a contact form within the modal window template. This template is already setup to use the [Formspree](https://formspree.io) email system. You'll just want to add your email address to the form in `/_includes/contact-modal.html`.
 
-    The built site is stored in the directory `_site`.
+Place the modal window template in any place you'd like the user to click for the contact form.
+The template will display a link to click for the contact form modal window:
 
-## Publishing your built site on a different platform
+```liquid
+{% include contact.html %}
+{% include contact-modal.html %}
+```
 
-Just upload all the files in the directory `_site`.
+### Animation Effects
 
-## Customization
+Animations with CSS classes are baked into the theme. To animate a section or element, simply add the animation classes:
 
-You're free to customize sites that you create with this template, however you like!
+```html
+<div id="about-me" class="wow fadeIn">
+  I'm the coolest!
+</div>
+```
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
+For a complete list of animations, see the [animation list](http://daneden.github.io/animate.css/).
 
-## Licensing and Attribution
+### Pagination
 
-This repository is licensed under the [MIT License]. You are generally free to reuse or extend upon this code as you see fit; just include the original copy of the license (which is preserved when you "make a template"). While it's not necessary, we'd love to hear from you if you do use this template, and how we can improve it for future use!
+By default, pagination on the home page will activate after 10 posts. You can change this within `_config.yml`. You can add the pagination to other layouts with:
 
-The deployment GitHub Actions workflow is heavily based on GitHub's mixed-party [starter workflows]. A copy of their MIT License is available in [actions/starter-workflows].
+```liquid
+  {% for post in paginator.posts %}
+    {% include post-content.html %}
+  {% endfor %}
 
-----
+  {% include pagination.html %}
+```
 
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
+Read more about the [pagination plugin](http://jekyllrb.com/docs/pagination/).
 
-[Jekyll]: https://jekyllrb.com
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[Bundler]: https://bundler.io
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
-[`jekyll-default-layout`]: https://github.com/benbalter/jekyll-default-layout
-[`jekyll-seo-tag`]: https://jekyll.github.io/jekyll-seo-tag
-[MIT License]: https://en.wikipedia.org/wiki/MIT_License
-[starter workflows]: https://github.com/actions/starter-workflows/blob/main/pages/jekyll.yml
-[actions/starter-workflows]: https://github.com/actions/starter-workflows/blob/main/LICENSE
+## Credit
+
+* Bootstrap, http://getbootstrap.com/, (C) 2011 - 2016 Twitter, Inc., [MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)
+
+* Wow, https://github.com/matthieua/WOW, (C) 2014 - 2016 Matthieu Aussaguel
+, [GPL](https://github.com/matthieua/WOW#open-source-license)
+
+* Animate.css, https://github.com/daneden/animate.css, (C) 2016 Daniel Eden, [MIT](https://github.com/daneden/animate.css/blob/master/LICENSE)
