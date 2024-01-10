@@ -19,6 +19,8 @@ description: "I'm a data scientist from Bostom creating useful things."
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jamigibbs.github.io/phantom" # the base hostname & protocol for your site, e.g. https://example.com
 github_username: 'jamigibbs'
+# twitter_username: 'jamigibbs'
+# medium_username: 'blog.jamigibbs.com'
 
 # Build settings
 markdown: kramdown
