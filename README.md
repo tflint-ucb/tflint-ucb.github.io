@@ -204,6 +204,10 @@ Inside the [`<Post />` component](https://github.com/LekoArts/gatsby-themes/blob
 
 The `static` folder contains the icons, social media images and `robots.txt`. Don't forget to change these files, too! You can use [Real Favicon Generator](https://realfavicongenerator.net/) to generate the image files inside `static`.
 
+### Deploying to GitHub Pages
+
+A command to deploy changes to GitHub Pages `npm run deploy`
+
 ## 🤔 Questions or problems?
 
 If you have general questions or need help with Gatsby, please go to one of the [support platforms](https://www.gatsbyjs.com/contributing/community/#where-to-get-support) mentioned in Gatsby's documentation. If you have a specific question about this project, you can head to the [GitHub Discussions](https://github.com/LekoArts/gatsby-themes/discussions) of the repository.
