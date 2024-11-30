@@ -67,3 +67,6 @@ public
 .idea
 .vscode
 .DS_Store
+
+# draft posts
+1-ac-demo
