@@ -18,7 +18,7 @@ const config: GatsbyConfig = {
     author: `@lekoarts_de`,
   },
   trailingSlash: `always`,
-  pathPrefix: "/tflint-ucb.github.io",
+  pathPrefix: "",
   plugins: [
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
