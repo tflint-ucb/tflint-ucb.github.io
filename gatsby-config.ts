@@ -138,6 +138,14 @@ const config: GatsbyConfig = {
         open: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-CBB5PQ80JF", // your Measurement ID
+        ],
+      },
+    },
   ].filter(Boolean) as Array<PluginRef>,
 }
 
