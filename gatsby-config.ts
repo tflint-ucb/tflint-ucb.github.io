@@ -8,11 +8,11 @@ const config: GatsbyConfig = {
     // You can overwrite values here that are used for the SEO component
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.mjs
-    siteTitle: `Portfolio`,
-    siteTitleAlt: `Tanya Flint Portfolio - Collection of projects`,
-    siteHeadline: `Tanya Flint Portfolio - Collection of projects`,
+    siteTitle: `T Stop`,
+    siteTitleAlt: `Tanya Flint - Collection of thoughts and projects`,
+    siteHeadline: `Tanya Flint - Collection of thoughts and projects`,
     siteUrl: `https://tflint-ucb.github.io/`,
-    siteDescription: `Tanya Flint's collection of projects and their descriptions.`,
+    siteDescription: `Tanya Flint's collection of posts about technology, AI and previous work.`,
     siteImage: `/banner.jpg`,
     siteLanguage: `en`,
     author: `@lekoarts_de`,
@@ -26,7 +26,7 @@ const config: GatsbyConfig = {
       options: {
         navigation: [
           {
-            title: `Projects`,
+            title: `Posts`,
             slug: `/blog`,
           },
           {
